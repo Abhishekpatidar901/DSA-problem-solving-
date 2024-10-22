@@ -7,3 +7,11 @@ int maxpathsum(TreeNode* root, int& maxi){
     maxi = max(maxi, leftmaxpath+rightmaxpath+root->data);
     return max(leftmaxpath,rightmaxpath)+root->data;
 }
+
+
+
+
+
+
+
+
