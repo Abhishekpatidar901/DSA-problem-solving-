@@ -1,0 +1,55 @@
+1st way -> 
+vector<int>twosum(vector<int>&nums, int target){
+    int n= nums.size();
+    vector<int>ans;
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(nums[i]+nums[j]==target){
+                ans.push_back(i);
+                ans.push_back(j);
+                return ans;
+            }
+        }
+    }
+    return {-1,-1};
+}
+
+2nd way -> 
+vector<int>twosum(vector<int>&nums, int target){
+    unordered_map<int,int>um;
+    for(int int i=0;i<nums.size();i++){
+     int num= nums[i];
+     int s =target- num;
+     if(um.find(s) != um.end()){
+       return {um[s],i}
+     }
+     um[num]=i;
+    }
+    return {-1,-1};
+}
+
+3rd way;
+
+vector<int>twosum(vector<int>&nums,int target){
+int n = nums.size();
+vector<vector<int>>eleindex;
+for(int i=0;i<nums.size();i++){
+    eleindex.push_back({nums[i],i});
+}
+sort(eleindex.begin(),eleindex.end(),[](const vector<int>&a,const vector<int>&b){
+    a[0]<b[0];
+});
+int left =0, right= n-1;
+while(left < right){
+    int sum = eleindex[left][0]+ eleindex[right][0];
+    if(sum== target){
+        ans.push_back(eleIndex[left][1]);
+        ans.push_back(eleIndex[right][1]);
+    }else if(sum>target){
+    right--;
+    }else{
+    left++;
+    }
+}
+return {-1,-1};
+}

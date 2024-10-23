@@ -1,0 +1,5 @@
+ans[j][n-1-i] = mat[i][j];
+
+other 
+swap(mat[i][j],mat[j][i]);
+reverse each row then
