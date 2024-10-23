@@ -13,14 +13,19 @@ bool isbalanced(Treenode *root){
     return dfsheight(root) != -1;
 }
 int dfsheight(Treenode *root){
-    if(root== nullptr){
-        return 0;
-    }
-    int lefth= dfsheight(root->left);
-    if(lefth==-1) return -1;
-    int righth= dfsheight(root->right);
-    if(righth==-1) return -1;
-    if(abs(lefth-righth)>1)return -1;
-
-    return max(lefth,righth)+1;
+if(root == nullptr){
+    return 0;
+}
+int lefth = dfsheight(root->left);
+if(lefth == -1){
+    return -1;
+}
+int righth =dfsheight(root->right);
+if(righth==-1){
+    return -1;
+}
+if(abs(lefth-righth)>1){
+    return -1;
+}
+return 1+max(lefth,righth);
 }
